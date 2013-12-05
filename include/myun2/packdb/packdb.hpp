@@ -5,6 +5,7 @@ namespace myun2
 {
 	namespace packdb
 	{
+		template <typename T>
 		class pack
 		{
 		};
