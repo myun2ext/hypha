@@ -13,6 +13,11 @@ namespace myun2
 			T& impl;
 		public:
 			writer(Impl& i) : impl(i) {}
+
+			long write(const void* p, unsigned int length) {
+				impl.seek_to_last();
+				return impl.write(p, length);
+			}
 		};
 	}
 }

@@ -9,14 +9,14 @@ namespace myun2
 	namespace packdb
 	{
 		template <typename T>
-		class pack
+		class pack : public writer<T>
 		{
 		private:
 			typedef T Impl;
 			T impl;
 		public:
-			pack(){}
-			pack(const Impl& i) : impl(i) {}
+			pack() : writer<T>(impl) {}
+			pack(const Impl& i) : impl(i), writer<T>(impl) {}
 		};
 	}
 }

@@ -36,8 +36,8 @@ namespace myun2
 				return fwrite(p, length, 1, fp);
 			}
 
-			void seek(long to) {
-				fseek(fp, to, SEEK_SET);
+			void seek_to(long pos) {
+				fseek(fp, pos, SEEK_SET);
 			}
 			long current() const {
 				return ftell(fp);
@@ -46,6 +46,8 @@ namespace myun2
 				fseek(fp, 0, SEEK_END);
 				return current();
 			}
+			long seek_to_last(){ return seek_to_tail(); }
+			long seek_to_end(){ return seek_to_tail(); }
 		};
 	}
 }
