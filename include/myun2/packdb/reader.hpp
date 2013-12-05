@@ -9,9 +9,10 @@ namespace myun2
 		class reader
 		{
 		private:
+			typedef T Impl;
 			T& impl;
 		public:
-			reader(impl& i) : impl(i) {}
+			reader(Impl& i) : impl(i) {}
 		};
 	}
 }

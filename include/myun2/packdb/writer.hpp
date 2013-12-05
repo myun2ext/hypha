@@ -9,9 +9,10 @@ namespace myun2
 		class writer
 		{
 		private:
+			typedef T Impl;
 			T& impl;
 		public:
-			writer(impl& i) : impl(i) {}
+			writer(Impl& i) : impl(i) {}
 		};
 	}
 }
