@@ -1,0 +1,31 @@
+#ifndef __github_com_myun2__packdb__file_HPP__
+#define __github_com_myun2__packdb__file_HPP__
+
+#include <io.h>
+#include <stdio.h>
+
+namespace myun2
+{
+	namespace packdb
+	{
+		class file
+		{
+		private:
+			FILE* fp;
+		public:
+			file() : fp(NULL) {}
+			file(const char* filename) { open(filename); }
+
+			bool open(const char* filename) {
+				if ( _access(filename, F_OK) == 0 ){
+					fp = fopen(filename, "r+b");
+				}
+				else {
+					fp = fopen(filename, "w+b");
+				}
+			}
+		};
+	}
+}
+
+#endif//__github_com_myun2__packdb__file_HPP__
