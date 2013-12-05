@@ -24,6 +24,16 @@ namespace myun2
 					fp = fopen(filename, "w+b");
 				}
 			}
+
+			////////////
+
+			size_t read(void* buf, size_t length) {
+				return fread(buf, length, 1, fp);
+			}
+
+			size_t write(const void* p, size_t length) {
+				return fwrite(p, length, 1, fp);
+			}
 		};
 	}
 }
