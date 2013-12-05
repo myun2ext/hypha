@@ -15,6 +15,7 @@ namespace myun2
 		public:
 			file() : fp(NULL) {}
 			file(const char* filename) { open(filename); }
+			~file() { /*fclose(fp);*/ }
 
 			bool open(const char* filename) {
 				if ( _access(filename, F_OK) == 0 ){
@@ -33,6 +34,17 @@ namespace myun2
 
 			size_t write(const void* p, size_t length) {
 				return fwrite(p, length, 1, fp);
+			}
+
+			void seek(long to) {
+				fseek(fp, to, SEEK_SET);
+			}
+			long current() const {
+				return ftell(fp);
+			}
+			long seek_to_tail() {
+				fseek(fp, 0, SEEK_END);
+				return current();
 			}
 		};
 	}
