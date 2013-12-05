@@ -1,4 +1,11 @@
 #ifndef __github_com_myun2__packdb__packdb_HPP__
 #define __github_com_myun2__packdb__packdb_HPP__
 
+namespace myun2
+{
+	namespace packdb
+	{
+	}
+}
+
 #endif//__github_com_myun2__packdb__packdb_HPP__
