@@ -1,0 +1,4 @@
+#ifndef __github_com_myun2__packdb__packdb_HPP__
+#define __github_com_myun2__packdb__packdb_HPP__
+
+#endif//__github_com_myun2__packdb__packdb_HPP__
