@@ -14,6 +14,11 @@ namespace myun2
 			{
 			private:
 				::std::vector<T> value;
+			public:
+				array(){}
+
+				const void* serialize_value() const { return &value.begin(); }
+				unsigned int size() const { return value.size() * sizeof(T); }
 			};
 		}
 	}
