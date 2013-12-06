@@ -1,7 +1,7 @@
 #ifndef __github_com_myun2__packdb__entries_HPP__
 #define __github_com_myun2__packdb__entries_HPP__
 
-#include <vector>
+#include "myun2/packdb/types/array.hpp"
 
 namespace myun2
 {
@@ -15,7 +15,8 @@ namespace myun2
 			typedef EntryIdType eid_type;
 			T& impl;
 
-			::std::vector<eid_type> eids;
+			//::std::vector<eid_type> eids;
+			types::array<eid_type> eids;
 		public:
 			entries(Impl& i) : impl(i) {}
 		};
