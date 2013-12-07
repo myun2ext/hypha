@@ -1,7 +1,12 @@
 #ifndef __github_com_myun2__packdb__file_HPP__
 #define __github_com_myun2__packdb__file_HPP__
 
-#include <io.h>
+#ifdef WIN32
+	#include <io.h>
+#else
+	#include <unistd.h>
+#endif
+
 #include <stdio.h>
 
 namespace myun2
@@ -18,12 +23,17 @@ namespace myun2
 			~file() { /*fclose(fp);*/ }
 
 			bool open(const char* filename) {
+#ifdef WIN32
 				if ( _access(filename, F_OK) == 0 ){
+#else
+				if ( access(filename, F_OK) == 0 ){
+#endif
 					fp = fopen(filename, "r+b");
 				}
 				else {
 					fp = fopen(filename, "w+b");
 				}
+				return fp == NULL ? false : true;
 			}
 
 			////////////
