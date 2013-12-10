@@ -1,3 +1,3 @@
 # Hypha
 
-**Hypha** is Network Model Database.
+**Hypha** is Network Model Liked Database implmeneted by C++.
