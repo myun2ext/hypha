@@ -46,9 +46,12 @@ namespace myun2
 			const void* serialize() const {
 				return &indata;
 			}
-
 			void read_serialized(const void* s, unsigned int size) {
 				memcpy(&indata, s, size);
+			}
+			void set_datas(const void* s, unsigned int size) {
+				memcpy(data(), s, size);
+				indata.used = size / sizeof(T);
 			}
 
 			T& operator [] (unsigned int i) {
