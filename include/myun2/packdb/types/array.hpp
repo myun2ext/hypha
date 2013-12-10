@@ -13,12 +13,14 @@ namespace myun2
 			class array
 			{
 			private:
-				::std::vector<T> value;
+				typedef ::std::vector<T> vector_t;
+				vector_t value;
 				static const int item_size = sizeof(T);
 			public:
 				array(){}
 
-				const void* serialize_value() const { return value.begin(); }
+				const T* data() const { return &value.begin(); }
+				const void* serialize_value() const { return &value.begin(); }
 				unsigned int size() const { return value.size(); }
 				unsigned int data_size() const { return size() * item_size; }
 
@@ -33,6 +35,13 @@ namespace myun2
 					//value = vector_t((const T*)s, (const T*)(s + size));
 					value.assign((const T*)s, (const T*)(s + size));
 				}
+
+				T& operator [] (unsigned int i) {
+					return value[i]; }
+				const T& operator [] (unsigned int i) const {
+					return value[i]; }
+
+				void append(const T& v) { value.push_back(v); }
 			};
 		}
 	}

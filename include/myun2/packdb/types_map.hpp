@@ -29,15 +29,15 @@ namespace myun2
 			typedef types::string type;
 		};
 
-		template <>
-		struct code_to_class_type<types_map::array> {
-			typedef types::array type;
-		};
+//		template <>
+//		struct code_to_class_type<types_map::array> {
+//			typedef types::array type;
+//		};
 
-		template <>
-		struct code_to_class_type<types_map::hash> {
-			typedef types::hash type;
-		};
+//		template <>
+//		struct code_to_class_type<types_map::hash> {
+//			typedef types::hash type;
+//		};
 	}
 }
 
