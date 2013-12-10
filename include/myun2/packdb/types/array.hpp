@@ -33,7 +33,7 @@ namespace myun2
 
 				void read_serialized(const void* s, unsigned int size) {
 					//value = vector_t((const T*)s, (const T*)(s + size));
-					value.assign((const T*)s, (const T*)(s + size));
+					value.assign((const T*)s, (const T*)((const char*)s + size));
 				}
 
 				T& operator [] (unsigned int i) {
