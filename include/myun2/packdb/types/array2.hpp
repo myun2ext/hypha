@@ -7,7 +7,7 @@ namespace myun2
 	{
 		namespace types
 		{
-			template <typename T, unsigned int _Size=31>
+			template <typename T, unsigned char _TypeCode, unsigned int _Size=31>
 			class array2
 			{
 			private:
@@ -19,7 +19,7 @@ namespace myun2
 					T data[_Size];
 
 					indata_type() {
-						code = 0;
+						code = _TypeCode;
 						subcode = 0;
 						_reserv1 = 0;
 						used = 0;
@@ -45,7 +45,7 @@ namespace myun2
 				T& tail() { return at(size()); }
 				const T& tail() const { return at(size()); }
 
-				const void* serialized() const {
+				const void* serialize() const {
 					return &indata;
 				}
 
@@ -61,8 +61,8 @@ namespace myun2
 				bool append(const T& v) {
 					if ( size() == _Size )
 						return false;
-					used_countup();
 					tail() = v;
+					used_countup();
 					return true;
 				}
 			};
