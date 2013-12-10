@@ -11,7 +11,7 @@ namespace myun2
 			class array2
 			{
 			private:
-				unsigned T* p_allocated;
+				T* p_allocated;
 				unsigned int used;
 
 				void allocate() { p_allocated = new T [_BlockSize]; }
@@ -38,8 +38,7 @@ namespace myun2
 				}
 
 				void read_serialized(const void* s, unsigned int size) {
-					//value = vector_t((const T*)s, (const T*)(s + size));
-					value.assign((const T*)s, (const T*)(s + size));
+					memcpy(p_allocated, s, size);
 				}
 
 				T& operator [] (unsigned int i) {
