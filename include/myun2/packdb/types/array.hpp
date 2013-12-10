@@ -25,9 +25,13 @@ namespace myun2
 				template <typename _Writer>
 				void serialize(_Writer& writer)
 				{
+					writer.write(size(), sizeof(unsigned int));
+					writer.write(serialize_value(), data_size());
 				}
 
 				void read_serialized(const void* s, unsigned int size) {
+					//value = vector_t((const T*)s, (const T*)(s + size));
+					value.assign((const T*)s, (const T*)(s + size));
 				}
 			};
 		}
