@@ -17,19 +17,20 @@ namespace myun2
 				typedef hypha<char, 0x02, 128 - 4> _Base;
 			public:
 				string(){}
-				string(const ::std::string& s) {
-					assign(s.c_str(), s.size());
+				string(const ::std::string& s) { set(s); }
+				string(const char* s) { set(s); }
+
+				void set(const ::std::string& s) {
+					write_bulk(s.c_str(), s.size() + 1);
 				}
-				string(const char* s) {
-					assign(s);
+				void set(const char* s, unsigned int length) {
+					write_bulk(s, length + 1);
+				}
+				void set(const char* s) {
+					write_bulk(s, strlen(s) + 1);
 				}
 
-				void assign(const char* s, unsigned int length) {
-					write_bulk(s, length);
-				}
-				void assign(const char* s) {
-					write_bulk(s, strlen(s));
-				}
+				const char* c_str() const { return data(); }
 			};
 		}
 	}

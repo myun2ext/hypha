@@ -57,10 +57,12 @@ namespace myun2
 				indata.used = size / sizeof(T);
 			}
 
-			T& operator [] (unsigned int i) {
+			/*T& operator [] (unsigned int i) {
 				return at(i); }
 			const T& operator [] (unsigned int i) const {
-				return at(i); }
+				return at(i); }*/
+			operator T* () { return data(); }
+			operator const T* () const { return data(); }
 
 			bool append(const T& v) {
 				if ( size() == _Size )

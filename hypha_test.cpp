@@ -8,6 +8,7 @@ using myun2::mycelium::types::string;
 void hypha_test()
 {
 	hypha<char, 3> a;
+	printf("\n=== hypha test case ===\n");
 
 	printf("a.size(): %d\n", a.size());
 	a.append(0x11);
@@ -25,7 +26,21 @@ void hypha_test()
 
 void string_test()
 {
+	string a;
+	printf("\n=== string test case ===\n");
 
+	printf("a.size(): %d\n", a.size());
+	a.set("test");
+	printf("%s\n", (const char*)a);
+	printf("a.size(): %d\n", a.size());
+	a.set("aaaabbbb");
+	printf("%s\n", (const char*)a);
+	printf("a.size(): %d\n", a.size());
+
+	const unsigned int* serialized_ui = (const unsigned int*)a.serialize();
+	printf("%08X\n", serialized_ui[0]);
+	printf("%08X\n", serialized_ui[1]);
+	printf("%08X\n", serialized_ui[2]);
 }
 
 int main()
