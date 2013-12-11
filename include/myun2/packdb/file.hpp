@@ -58,6 +58,11 @@ namespace myun2
 			}
 			long seek_to_last(){ return seek_to_tail(); }
 			long seek_to_end(){ return seek_to_tail(); }
+
+			long size() {
+				seek_to_last();
+				return current();
+			}
 		};
 	}
 }
