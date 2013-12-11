@@ -7,13 +7,13 @@ namespace myun2
 {
 	namespace mycelium
 	{
-		template <typename _Locator>
+		template <typename _Location>
 		class colony
 		{
 		private:
-			
+			_Location location;
 		public:
-			colony(){}
+			colony(_Location& locate) : location(locate) {}
 			virtual ~colony(){}
 		};
 	}
