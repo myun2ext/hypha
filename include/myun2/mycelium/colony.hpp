@@ -15,6 +15,8 @@ namespace myun2
 		public:
 			colony(_Location& locate) : location(locate) {}
 			virtual ~colony(){}
+
+			void grow(){}
 		};
 	}
 }
