@@ -31,6 +31,9 @@ namespace myun2
 				}
 
 				const char* c_str() const { return data(); }
+
+				unsigned int size() const { return (_Base::size() == 0 ? 0 : _Base::size() - 1); }
+				unsigned int length() const { return size(); }
 			};
 		}
 	}
