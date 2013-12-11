@@ -12,11 +12,14 @@ namespace myun2
 		{
 		private:
 			_Location location;
+			unsigned int occupied;
 		public:
 			colony(_Location& locate) : location(locate) {}
-			virtual ~colony(){}
+			virtual ~colony() : occupied(0) {}
 
-			void grow(){}
+			void grow(){
+				occupied++;
+			}
 		};
 	}
 }
