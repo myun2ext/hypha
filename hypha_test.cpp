@@ -1,11 +1,13 @@
-#include "myun2/packdb/types/array2.hpp"
-#include "myun2/packdb/packdb.hpp"
+#include <stdio.h>
+#include "myun2/mycelium/hypha.hpp"
+#include "myun2/mycelium/types/string.hpp"
 
-using myun2::packdb::types::array2;
+using myun2::mycelium::hypha;
+using myun2::mycelium::types::string;
 
-void array_test_of_bytes()
+void hypha_test()
 {
-	array2<char, 3> a;
+	hypha<char, 3> a;
 
 	printf("a.size(): %d\n", a.size());
 	a.append(0x11);
@@ -21,15 +23,15 @@ void array_test_of_bytes()
 	printf("%08X\n", serialized_ui[2]);
 }
 
-void array_test_of_integers()
+void string_test()
 {
 
 }
 
 int main()
 {
-	array_test_of_bytes();
-	array_test_of_integers();
+	hypha_test();
+	string_test();
 
 	return 0;
 }

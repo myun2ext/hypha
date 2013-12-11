@@ -1,6 +1,8 @@
 #ifndef __github_com_myun2__mycelium__hypha_HPP__
 #define __github_com_myun2__mycelium__hypha_HPP__
 
+#include <memory.h>
+
 namespace myun2
 {
 	namespace mycelium
@@ -33,6 +35,7 @@ namespace myun2
 			indata_type* internal() { return &indata; }
 			const indata_type* internal() const { return &indata; }
 
+			T* data() { return indata.data; }
 			const T* data() const { return indata.data; }
 			const void* serialize_value() const { return data(); }
 			unsigned int size() const { return indata.used; }
@@ -49,7 +52,7 @@ namespace myun2
 			void read_serialized(const void* s, unsigned int size) {
 				memcpy(&indata, s, size);
 			}
-			void set_datas(const void* s, unsigned int size) {
+			void write_bulk(const void* s, unsigned int size) {
 				memcpy(data(), s, size);
 				indata.used = size / sizeof(T);
 			}
