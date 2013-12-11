@@ -1,5 +1,5 @@
-#ifndef __github_com_myun2__packdb__file_HPP__
-#define __github_com_myun2__packdb__file_HPP__
+#ifndef __github_com_myun2__mycelium__locator__file__HPP__
+#define __github_com_myun2__mycelium__locator__file__HPP__
 
 #ifdef WIN32
 	#include <io.h>
@@ -11,7 +11,7 @@
 
 namespace myun2
 {
-	namespace packdb
+	namespace mycelium
 	{
 		class file
 		{
@@ -67,4 +67,4 @@ namespace myun2
 	}
 }
 
-#endif//__github_com_myun2__packdb__file_HPP__
+#endif//__github_com_myun2__mycelium__locator__file__HPP__
