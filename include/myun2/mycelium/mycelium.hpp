@@ -7,14 +7,14 @@ namespace myun2
 {
 	namespace mycelium
 	{
-		template <typename _Location>
+		template <typename _Locator>
 		class mycelium
 		{
 		private:
-			_Location location;
+			_Locator location;
 			unsigned int occupied;
 		public:
-			mycelium(_Location& locate) : location(locate) {}
+			mycelium(_Locator& locate) : location(locate) {}
 			virtual ~mycelium() : occupied(0) {}
 
 			void grow(){
